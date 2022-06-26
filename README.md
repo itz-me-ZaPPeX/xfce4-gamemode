@@ -2,6 +2,7 @@
 
 Gamemode tweak for XFCE4 desktop
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/15c159135113494ea6d702fe86c13122)](https://app.codacy.com/gh/itz-me-ZaPPeX/xfce4-gamemode?utm_source=github.com&utm_medium=referral&utm_content=itz-me-ZaPPeX/xfce4-gamemode&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/146c6a2273a94ffca4a29359fd6f4076)](https://www.codacy.com/gh/itz-me-ZaPPeX/xfce4-gamemode/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=itz-me-ZaPPeX/xfce4-gamemode&amp;utm_campaign=Badge_Grade)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue)](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/LICENSE)
 [![platfotm](https://img.shields.io/badge/platform-linux-lightgrey)](https://en.wikipedia.org/wiki/Linux)
