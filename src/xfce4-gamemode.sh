@@ -270,7 +270,7 @@ case "$1" in
 	echo "Init-system service management: \"$init_manage\""
 	echo "Preset used: \"$preset\""
 	echo "Available presets: \"default\", \"performance\", \"high-performance\", \"custom-preset\""
-	echo "Version: 1.0.0"
+	echo "Version: 1.0.0 (pre-release)"
 	echo "Author: ZaPPeX"
 	echo "Github: https://github.com/itz-me-ZaPPeX"
 	echo "Hello from Ukraine :)"
