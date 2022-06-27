@@ -13,6 +13,7 @@ fi
 
 ## INSTALLATION CONFIRMATION
 read -p "Are you sure you want to continue the installation? [Y/n]: " question
+
 case "$question" in
 Y | y )
 	echo "Copying the directory with the utility files to \"$destination_folder\""
