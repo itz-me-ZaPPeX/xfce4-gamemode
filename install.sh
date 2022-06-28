@@ -16,14 +16,18 @@ read -p "Are you sure you want to continue the installation? [Y/n]: " question
 
 case "$question" in
 Y | y )
-	echo "Copying the directory with the utility files to \"$destination_folder\""
+	echo
+	echo "Copying the directory with the utility files to \"$destination_folder\"..."
 	cp -r "$app_folder/src" "$destination_folder"
-	echo "Adding the right to execute the utility"
+	echo
+	echo "Adding the right to execute the utility..."
 	chmod ugo+x "$destination_folder/xfce4-gamemode.sh"
-	echo "Creating a symlink from \"$destination_folder/xfce4-gamemode.sh\" to \"/usr/bin/xfce4-gamemode\""
+	echo
+	echo "Creating a symlink from \"$destination_folder/xfce4-gamemode.sh\" to \"/usr/bin/xfce4-gamemode\"..."
 	ln -s "$destination_folder/xfce4-gamemode.sh" "/usr/bin/xfce4-gamemode"
+	echo
 	echo "The installation is complete! For help, please run \"xfce4-gamemode --help\". In case you need to remove it, run \"xfce4-gamemode --remove\"."
 ;;
 N | n )
-	echo "Installation canceled"
+	echo "Installation canceled."
 esac
