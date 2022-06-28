@@ -1,6 +1,6 @@
 # Xfce4-gamemode
 
-Gamemode tweak for XFCE4 desktop
+Gamemode tweak for XFCE4 desktop.
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/146c6a2273a94ffca4a29359fd6f4076)](https://www.codacy.com/gh/itz-me-ZaPPeX/xfce4-gamemode/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=itz-me-ZaPPeX/xfce4-gamemode&amp;utm_campaign=Badge_Grade)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue)](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/LICENSE)
@@ -13,13 +13,27 @@ This utility created on Bash that supports controlling various commands from the
 
 ## INSTALLIATION
 
+## Installing git version from a branch:
+
 ```
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
 $ cd xfce4-gamemode
 $ chmod u+x install.sh
 $ sudo ./install.sh
 ```
+
+## Installing stable version:
+
+```
+$ wget https://github.com/itz-me-ZaPPeX/xfce4-gamemode/releases/download/vX.X.X/xfce4-gamemode-X-X-X.tar.gz
+$ tar zxvf xfce4-gamemode-X-X-X.tar.gz
+$ cd xfce4-gamemode-X-X-X
+$ chmod u+x install.sh
+$ sudo ./install.sh
+```
+
 ## USAGE
+
 For usage information, enter this command:
 ```
 xfce4-gamemode --help
@@ -59,7 +73,9 @@ instead of
 xfce4-gamemode --enable
 xfce4-gamemode --disable
 ```
+
 ### Example:
+
 ![screenshot-4](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/screenshot-4.png)
 
 ## PRESETS AND INIT-MANAGE
@@ -95,27 +111,35 @@ xfce4-gamemode --set init-manage true/false
 ## TESTS IN "TOMB RAIDER 2013" (Proton 7.0.3)
 
 ### Tested system
+
 All tests were done on a freshly installed Manjaro Linux XFCE 21.3.0 (full edition) without any optimizations. Steam was preinstalled, only Flameshot and Mangohud were installed
 
 ![screenshot-1](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/screenshot-1.png)
 
 ### Graphics settings
+
 ![screenshot-2](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/screenshot-2.png)
 ![screenshot-3](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/screenshot-3.png)
 
 ### Results
+
 #### XFCE4-GAMEMODE DISABLED
+
 ![gamemode-off](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/gamemode-off.png)
 
 #### XFCE4-GAMEMODE ENABLED ("default" preset)
+
 ![gamemode-default](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/gamemode-default.png)
 
 #### XFCE4-GAMEMODE ENABLED ("performance" preset)
+
 ![gamemode-performance](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/gamemode-performace.png)
 
 #### XFCE4-GAMEMODE ENABLED ("high-performance" preset)
+
 ![gamemode-high-performance](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/gamemode-high-performance.png)
 
 ### Conclusion
+
 On my hardware, the difference between the presets is not noticeable (within the margin of error), but may help users with a weaker computer.
 Also, don't forget to tune your distribution to improve performance.
