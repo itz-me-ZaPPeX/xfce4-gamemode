@@ -7,15 +7,15 @@ init_config="$config_folder/init.conf"
 custom_preset_config="$config_folder/custom-preset.conf"
 xfce4_gamemode_data=".local/share/xfce4-gamemode.data"
 # OUTPUT
-gamemode_output_on="XFCE4-GAMEMODE is running. The setting preset in use is - "
+gamemode_output_on="XFCE4-GAMEMODE is running. The setting preset in use is -"
 gamemode_output_off="XFCE4-GAMEMODE is stopped."
 input_error="Input error. Use the \"--help/h\" operand to view detailed usage information."
 xfce4_gamemode_content="init_manage=false
 preset=default
 xfce4_gamemode_status=inactive"
 text_editor_question="Which text editor do you want to open the file with?: "
-init_manage_output="Service management at the initialization system level"
-cancel_output="The action is canceled."
+init_manage_output="Init-system service management"
+cancel_output="Action canceled."
 # STOPPING APPLICATIONS/SERVICES
 stop_dpms='xset s off -dpms'
 stop_compositing='xfwm4 --replace --compositor=off'
@@ -45,9 +45,9 @@ function reset_config(){
 	if [ -d "$config_folder" ]
 	then
 		rm -rf "$config_folder"
-		echo "The utility configuration files have been reset."
+		echo "Utility configuration files have been reset."
 	else
-		echo "The directory with the utility configuration files was not found."
+		echo "Directory with the utility configuration files was not found."
 	fi
 }
 # DELETING UTILITY DATA
@@ -55,9 +55,9 @@ function reset_data(){
 	if [ -f "$xfce4_gamemode_data" ]
 	then
 		rm -rf "$xfce4_gamemode_data"
-		echo "The utility data has been reset."
+		echo "Utility data has been reset."
 	else
-		echo "No utility data file was found."
+		echo "Utility data file was found."
 	fi
 }
 # UNINSTALLING THE UTILITY
@@ -71,10 +71,10 @@ function remove(){
 			echo "You need superuser privileges to uninstall the utility!"
 			exit
 		else
-			echo "The utility files have been deleted."
+			echo "Utility files have been deleted."
 		fi
 	else
-		echo "No directory with utility files was found."
+		echo "Directory with utilities files not found."
 	fi
 }
 # CHECK IF THE SPECIFIED TEXT EDITOR IS AVAILABLE
@@ -89,7 +89,7 @@ fi
 function xfce4_gamemode_security(){
 	case "$xfce4_gamemode_status" in
 	active )
-		echo "Turn off game mode to make changes!"
+		echo "Turn off xfce4-gamemode to make changes!"
 		exit
 	esac
 }
@@ -136,6 +136,11 @@ case "$1" in
 		echo "$input_error"
 		exit
 	fi
+	case "$xfce4_gamemode_status" in
+	active )
+		echo "Utility is already working!"
+		exit
+	esac
 	case "$init_manage" in
 	true )
 		pkexec bash -c "$(declare -f init-manage-ON); init-manage-ON"
@@ -182,6 +187,11 @@ case "$1" in
 		echo "$input_error"
 		exit
 	fi
+	case "$xfce4_gamemode_status" in
+	inactive )
+		echo "Utility is inactive!"
+		exit
+	esac
 	case "$init_manage" in
 	true )
 		pkexec bash -c "$(declare -f init-manage-OFF); init-manage-OFF"
@@ -270,10 +280,10 @@ case "$1" in
 	echo "Init-system service management: \"$init_manage\""
 	echo "Preset used: \"$preset\""
 	echo "Available presets: \"default\", \"performance\", \"high-performance\", \"custom-preset\""
-	echo "Version: git-latest (27.06.2022)"
+	echo "Version: git-latest (28.06.2022)"
 	echo "Author: ZaPPeX"
 	echo "Github: https://github.com/itz-me-ZaPPeX"
-	echo "Hello from Ukraine :)"
+	echo "Hello from Ukraine!"
 	echo "Russian warship, go fuck yourself!"
 	echo
 ;;
@@ -331,7 +341,7 @@ case "$1" in
 	xfce4_gamemode_security
 	case "$2" in
 	config | data | all )
-		read -p "Do you really want to reset the selected parameter? [Y/n]: " question
+		read -p "Do you really want to reset selected parameter? [Y/n]: " question
 		case "$question" in
 		Y | y )
 			case "$2" in
