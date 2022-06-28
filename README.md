@@ -17,7 +17,7 @@ This utility created on Bash that supports controlling various commands from the
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
 $ cd xfce4-gamemode
 $ chmod u+x install.sh
-$ sudo install.sh
+$ sudo ./install.sh
 ```
 ## USAGE
 For usage information, enter this command:
