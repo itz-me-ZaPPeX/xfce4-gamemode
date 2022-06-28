@@ -13,7 +13,7 @@ This utility created on Bash that supports controlling various commands from the
 
 ## INSTALLIATION
 
-## Installing git version from a branch:
+## Installing git version from branch:
 
 ```
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
@@ -40,6 +40,7 @@ xfce4-gamemode --help
 ```
 Output:
 ```
+
 Usage: xfce4-gamemode [OPERAND]
    or: xfce4-gamemode [OPERAND] [PARAMETERS]
 
@@ -51,7 +52,7 @@ Available operands:
 --info, -i                   Utility information
 --help, -h                   Help
 --edit, -ed                  Editing configuration files
---keybind, -k                Designed to enable/disable the XFCE4-GAMEMODE with one key combination (works by recognizing the activity of the utility)
+--keybind, -k                Enables/disables the utility depending on its state (may be useful for creating a keyboard shortcut)
 
 Utility management:
 
@@ -60,7 +61,8 @@ Utility management:
 
 Additional operand parameters:
 
---set, -s                    preset <default, performance, high-performance, custom-preset>; init-manage <true, false>
+--set, -s                    preset <default, performance, high-performance, custom-preset>
+                             init-manage <true, false>
 --edit, -ed                  custom-preset; init-config
 --reset, -r                  config; data; all
 ```
