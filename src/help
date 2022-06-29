@@ -13,7 +13,7 @@ Available operands:
 
 Utility management:
 
---remove, -rm                Remove utility
+--uninstall, -u              Uninstall utility
 --reset, -r                  Reset utility settings
 
 Additional operand parameters:
