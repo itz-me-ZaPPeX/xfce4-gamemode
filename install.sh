@@ -26,7 +26,7 @@ Y | y )
 	echo "Creating a symlink from \"$destination_folder/xfce4-gamemode.sh\" to \"/usr/bin/xfce4-gamemode\"..."
 	ln -s "$destination_folder/xfce4-gamemode.sh" "/usr/bin/xfce4-gamemode"
 	echo
-	echo "The installation is complete! For help, please run \"xfce4-gamemode --help\". In case you need to remove it, run \"xfce4-gamemode --remove\"."
+	echo "The installation is complete! For help, please run \"xfce4-gamemode --help\". In case you need to remove it, run \"xfce4-gamemode --uninstall\"."
 ;;
 N | n )
 	echo "Installation canceled."
