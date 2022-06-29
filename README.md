@@ -76,13 +76,13 @@ xfce4-gamemode --enable
 xfce4-gamemode --disable
 ```
 
-### Example:
+### Example
 
 ![screenshot-4](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/screenshot-4.png)
 
 ## PRESETS AND INIT-MANAGE
 
-Standard presets:
+Standard presets
 ```
 Default - disables screen darkening and shutdown along with XFWM window manager compositing (set by default)
     
@@ -91,22 +91,22 @@ Performance - same as "Default", but also disables XFDESKTOP with XFCE4-CLIPMAN
 High-performance - same as "Performance", but also disables XFCE4-PANEL, NM-APPLET, BLUEMAN-APPLET, XFCE4-POWER-MANAGER, LIGHT-LOCKER, XFCE4-NOTIFYD
 ```
 
-Custom preset:
+Custom preset
 ```
 Custom-preset - lets you fully customize the start/stop of applications when XFCE4-GAMEMODE starts and ends
 ```
 
-Init-system service management:
+Init-system service management
 ```
 Init-config - requires user edits, also improves performance when configured normally
 ```
 
-Change of preset:
+Change of preset
 ```
 xfce4-gamemode --set preset default/performance/high-performance/custom-preset
 ```
 
-Enable/disable init-system service management:
+Enable/disable init-system service management
 ```
 xfce4-gamemode --set init-manage true/false
 ```
