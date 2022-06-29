@@ -2,10 +2,10 @@
 
 ## VARIABLES
 # FILES WITH WHICH THE SCRIPT WORKS
-config_folder=".config/xfce4-gamemode"
+config_folder="$HOME/.config/xfce4-gamemode"
 init_config="$config_folder/init.conf"
 custom_preset_config="$config_folder/custom-preset.conf"
-xfce4_gamemode_data=".local/share/xfce4-gamemode.data"
+xfce4_gamemode_data="$HOME/.local/share/xfce4-gamemode.data"
 # OUTPUT
 gamemode_output_on="XFCE4-GAMEMODE is running. The setting preset in use is -"
 gamemode_output_off="XFCE4-GAMEMODE is stopped."
@@ -16,7 +16,7 @@ xfce4_gamemode_status=inactive"
 text_editor_question="Which text editor do you want to open the file with?: "
 init_manage_output="Init-system service management"
 cancel_output="Action canceled."
-# STOPPING APPLICATIONS/SERVICES
+# STOP APPS/SERVICES
 stop_dpms='xset s off -dpms'
 stop_compositing='xfwm4 --replace --compositor=off'
 stop_xfce4_panel='xfce4-panel --quit'
@@ -27,7 +27,7 @@ stop_xfce4_power_manager='killall xfce4-power-manager'
 stop_light_locker='killall light-locker'
 stop_xfce4_clipman='killall xfce4-clipman'
 stop_xfce4_notifyd='killall xfce4-notifyd'
-# LAUNCHING APPLICATIONS/SERVICES
+# LAUNCH APPS/SERVICES
 start_dpms='xset s on dpms'
 start_compositing='xfwm4 --replace --compositor=on'
 start_xfce4_panel='xfce4-panel'
@@ -40,7 +40,7 @@ start_xfce4_clipman='xfce4-clipman'
 start_xfce4_notifyd='/usr/lib/xfce4/notifyd/xfce4-notifyd'
 
 ## FUNCTIONS
-# DELETING CONFIGURATION FILES
+# DELETE CONFIGURATION FILES
 function reset_config(){
 	if [ -d "$config_folder" ]
 	then
@@ -50,7 +50,7 @@ function reset_config(){
 		echo "Directory with the utility configuration files was not found."
 	fi
 }
-# DELETING UTILITY DATA
+# DELETE UTILITY DATA
 function reset_data(){
 	if [ -f "$xfce4_gamemode_data" ]
 	then
@@ -60,7 +60,7 @@ function reset_data(){
 		echo "Utility data file was found."
 	fi
 }
-# UNINSTALLING THE UTILITY
+# UNINSTALL UTILITY
 function remove(){
 	if [ -d "/opt/xfce4-gamemode" ]
 	then
@@ -77,7 +77,7 @@ function remove(){
 		echo "Directory with utilities files not found."
 	fi
 }
-# CHECK IF THE SPECIFIED TEXT EDITOR IS AVAILABLE
+# CHECK IF SPECIFIED TEXT EDITOR IS AVAILABLE
 function text_editor_check(){
 if [ ! -f "/usr/bin/$editor" ]
 then
@@ -101,29 +101,29 @@ then
 	echo "This utility can only work on behalf of an unprivileged user!"
 	exit
 fi
-# CHECK THE DIRECTORY WITH CONFIGURATION FILES
+# CHECK DIRECTORY WITH CONFIGURATION FILES
 if [ ! -d "$config_folder" ]
 then
 	mkdir -p "$config_folder"
 fi
-# CHECKING THE AVAILABILITY OF THE CONFIGURATION FILE FOR SERVICE MANAGEMENT AT THE INITIALIZATION SYSTEM LEVEL
+# CHECK AVAILABILITY OF CONFIGURATION FILE FOR SERVICE MANAGEMENT AT THE INIT-SYSTEM LEVEL
 if [ ! -f "$init_config" ]
 then
 	cp "/opt/xfce4-gamemode/init.conf" "$init_config"
 fi
-# CHECK THE AVAILABILITY OF THE CONFIGURATION FILE OF THE CUSTOM MODE
+# CHECK AVAILABILITY OF THE CONFIGURATION FILE OF THE CUSTOM MODE
 if [ ! -f "$custom_preset_config" ]
 then
 	cp "/opt/xfce4-gamemode/custom-preset.conf" "$custom_preset_config"
 fi
 
-# CHECKING THE AVAILABILITY OF APPLICATION DATA
+# CHECKING AVAILABILITY OF APPLICATION DATA
 if [ ! -f "$xfce4_gamemode_data" ]
 then
 	echo "$xfce4_gamemode_content" > "$xfce4_gamemode_data"
 fi
 
-## USING CONFIGURATION FILES AND SETTINGS DATA
+## USE CONFIGURATION FILES AND SETTINGS DATA
 source "$init_config"
 source "$custom_preset_config"
 source "$xfce4_gamemode_data"
@@ -280,7 +280,7 @@ case "$1" in
 	echo "Init-system service management: \"$init_manage\""
 	echo "Preset used: \"$preset\""
 	echo "Available presets: \"default\", \"performance\", \"high-performance\", \"custom-preset\""
-	echo "Version: git-latest (28.06.2022)"
+	echo "Version: git-latest (29.06.22)"
 	echo "Author: ZaPPeX"
 	echo "Github: https://github.com/itz-me-ZaPPeX"
 	echo "Hello from Ukraine!"
@@ -367,14 +367,14 @@ case "$1" in
 		echo "$input_error"
 	esac
 ;;
---remove | -rm )
+--uninstall | -u )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
 		exit
 	fi
 	xfce4_gamemode_security
-	read -p "Do you really want to delete this utility? [Y/n]: " question
+	read -p "Do you really want to uninstall this utility? [Y/n]: " question
 	case "$question" in
 	Y | y )
 		sudo bash -c "$(declare -f remove); remove"
