@@ -24,35 +24,35 @@ $ sudo ./install.sh
 
 For usage information, enter this command:
 ```
-xfce4-gamemode --help
+xfce4-gamemode help
 ```
 Output:
 ```
-
 Usage: xfce4-gamemode [OPERAND]
    or: xfce4-gamemode [OPERAND] [PARAMETERS]
 
 Available operands:
 
---enable, -e                 Enable XFCE4-GAMEMODE
---disable, -d                Disable XFCE4-GAMEMODE
---set, -s                    Management of presets and init-system services
---info, -i                   Utility information
---help, -h                   Help
---edit, -ed                  Editing configuration files
---keybind, -k                Enables/disables the utility depending on its state (may be useful for creating a keyboard shortcut)
-
-Utility management:
-
---uninstall, -u              Uninstall utility
---reset, -r                  Reset utility settings
+enable                     Enable gamemode
+disable                    Disable gamemode
+set                        Management of presets and init-system services
+info                       Utility information
+help                       Help
+edit                       Edit configuration files
+keybind                    Enable/disable the utility depending on its state (may be useful for creating a keyboard shortcut)
+uninstall                  Uninstall utility
+reset                      Reset utility settings
+update                     Update utility
 
 Additional operand parameters:
 
---set, -s                    preset <default, performance, high-performance, custom-preset>
-                             init-manage <true, false>
---edit, -ed                  custom-preset; init-config
---reset, -r                  config; data; all
+set                        --preset <default, performance, high-performance, custom-preset>
+                           --init-manage <true, false>
+edit                       --custom-preset
+                           --init-manage
+reset                      --config
+                           --data
+                           --all
 ```
 For a better experience, you can create keyboard shortcuts to control the utility, for example to enable/disable you can use this command:
 ```
