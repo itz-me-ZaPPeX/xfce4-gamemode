@@ -66,7 +66,7 @@ xfce4-gamemode disable
 
 ### Example
 
-
+![example](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/example.png)
 
 ## PRESETS AND INIT-MANAGE
 
