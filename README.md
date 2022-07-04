@@ -68,36 +68,6 @@ xfce4-gamemode disable
 
 ![example](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/example.png)
 
-## PRESETS AND INIT-MANAGE
-
-Standard presets
-```
-Default - disables screen darkening and shutdown along with XFWM window manager compositing (set by default)
-    
-Performance - same as "Default", but also disables XFDESKTOP with XFCE4-CLIPMAN
-    
-High-performance - same as "Performance", but also disables XFCE4-PANEL, NM-APPLET, BLUEMAN-APPLET, XFCE4-POWER-MANAGER, LIGHT-LOCKER, XFCE4-NOTIFYD
-```
-
-Custom preset
-```
-Custom-preset - lets you fully customize the start/stop of applications when XFCE4-GAMEMODE starts and ends
-```
-
-Init-system service management
-```
-Init-config - requires user edits, also improves performance when configured normally
-```
-
-Change of preset
-```
-xfce4-gamemode set --preset default/performance/high-performance/custom-preset
-```
-
-Enable/disable init-system service management
-```
-xfce4-gamemode set --init-manage true/false
-```
 ## TESTS IN "TOMB RAIDER 2013" (Proton 7.0.3)
 
 ### Tested system
