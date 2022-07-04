@@ -13,21 +13,9 @@ This utility created on Bash that supports controlling various commands from the
 
 ## INSTALLIATION
 
-## Git version from branch (latest)
-
 ```
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
 $ cd xfce4-gamemode
-$ chmod u+x install.sh
-$ sudo ./install.sh
-```
-
-## Stable version
-
-```
-$ wget https://github.com/itz-me-ZaPPeX/xfce4-gamemode/releases/download/vX.X.X/xfce4-gamemode-X-X-X.tar.gz
-$ tar zxvf xfce4-gamemode-X-X-X.tar.gz
-$ cd xfce4-gamemode-X-X-X
 $ chmod u+x install.sh
 $ sudo ./install.sh
 ```
