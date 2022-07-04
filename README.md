@@ -56,12 +56,12 @@ reset                      --config
 ```
 For a better experience, you can create keyboard shortcuts to control the utility, for example to enable/disable you can use this command:
 ```
-xfce4-gamemode --keybind
+xfce4-gamemode keybind
 ```
 instead of
 ```
-xfce4-gamemode --enable
-xfce4-gamemode --disable
+xfce4-gamemode enable
+xfce4-gamemode disable
 ```
 
 ### Example
