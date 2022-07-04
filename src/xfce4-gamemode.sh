@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
 ## VARIABLES
-# FILES WITH WHICH THE SCRIPT WORKS
+# FILES AND FOLDERS WITH WHICH THE SCRIPT WORKS
 config_folder="$HOME/.config/xfce4-gamemode"
 init_config="$config_folder/init.conf"
 custom_preset_config="$config_folder/custom-preset.conf"
 xfce4_gamemode_data="$HOME/.local/share/xfce4-gamemode.data"
+update_folder="$HOME/.cache/xfce4-gamemode-update"
 # OUTPUT
-gamemode_output_on="XFCE4-GAMEMODE is running. The setting preset in use is -"
-gamemode_output_off="XFCE4-GAMEMODE is stopped."
-input_error="Input error. Use the \"--help/h\" operand to view detailed usage information."
-xfce4_gamemode_content="init_manage=false
-preset=default
-xfce4_gamemode_status=inactive"
+gamemode_output_on="Gamemode is running. Preset in use -"
+gamemode_output_off="Gamemode is stopped."
+input_error="Input error! Use the \"help\" operand to view detailed usage information."
 text_editor_question="Which text editor do you want to open the file with?: "
 init_manage_output="Init-system service management"
 cancel_output="Action canceled."
+update_error_output="An error occurred while updating!"
+invalid_parameter_output="Invalid parameter!"
 # STOP APPS/SERVICES
 stop_dpms='xset s off -dpms'
 stop_compositing='xfwm4 --replace --compositor=off'
@@ -38,6 +38,10 @@ start_xfce4_power_manager='xfce4-power-manager'
 start_light_locker='light-locker'
 start_xfce4_clipman='xfce4-clipman'
 start_xfce4_notifyd='/usr/lib/xfce4/notifyd/xfce4-notifyd'
+# OTHER
+xfce4_gamemode_content="init_manage=false
+preset=default
+xfce4_gamemode_status=inactive"
 
 ## FUNCTIONS
 # DELETE CONFIGURATION FILES
@@ -66,13 +70,6 @@ function remove(){
 	then
 		sudo rm -rf "/opt/xfce4-gamemode"
 		sudo unlink "/usr/bin/xfce4-gamemode"
-		if [ -d "/opt/xfce4-gamemode" ]
-		then
-			echo "You need superuser privileges to uninstall the utility!"
-			exit
-		else
-			echo "Utility files have been deleted."
-		fi
 	else
 		echo "Directory with utilities files not found."
 	fi
@@ -93,12 +90,26 @@ function xfce4_gamemode_security(){
 		exit
 	esac
 }
+# UPDATE
+function update_func(){
+	if [ -d "/opt/xfce4-gamemode" ]
+	then
+		echo "Uninstalling old version of utility..."
+		sudo rm -rf "/opt/xfce4-gamemode"
+		sudo unlink "/usr/bin/xfce4-gamemode"
+	fi
+	echo "Installing new version of utility..."
+	mv "src" "/opt/xfce4-gamemode"
+	chmod ugo+x "/opt/xfce4-gamemode/xfce4-gamemode.sh"
+	ln -s "/opt/xfce4-gamemode/xfce4-gamemode.sh" "/usr/bin/xfce4-gamemode"
+	echo "Update installed successfully!"
+}
 
 ## PRE-RUN CHECKS
 # PRIVILEGIES CHECK
 if [ "$EUID" = 0 ]
 then
-	echo "This utility can only work on behalf of an unprivileged user!"
+	echo "This utility cannot work with superuser rights!"
 	exit
 fi
 # CHECK DIRECTORY WITH CONFIGURATION FILES
@@ -130,7 +141,7 @@ source "$xfce4_gamemode_data"
 
 ## CODE
 case "$1" in
---enable | -e )
+enable )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -181,7 +192,7 @@ case "$1" in
 		exit
 	esac
 ;;
---disable | -d )
+disable )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -232,7 +243,7 @@ case "$1" in
 		exit
 	esac
 ;;
---set | -s )
+set )
 	if [ "$#" -gt 3 ]
 	then
 		echo "$input_error"
@@ -240,7 +251,7 @@ case "$1" in
 	fi
 	xfce4_gamemode_security
 	case "$2" in
-	preset )
+	--preset )
 		case "$3" in
 		default | performance | high-performance | custom-preset )
 			sed -i "s/preset=.*/preset=$3/" "$xfce4_gamemode_data"
@@ -250,7 +261,7 @@ case "$1" in
 			echo "$input_error"
 		esac
 	;;
-	init-manage )
+	--init-manage )
 		case "$3" in
 		true | false )
 			sed -i "s/init_manage=.*/init_manage=$3/" "$xfce4_gamemode_data"
@@ -270,7 +281,7 @@ case "$1" in
 		echo "$input_error"
 	esac
 ;;
---info | -i )
+info )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -280,14 +291,14 @@ case "$1" in
 	echo "Init-system service management: \"$init_manage\""
 	echo "Preset used: \"$preset\""
 	echo "Available presets: \"default\", \"performance\", \"high-performance\", \"custom-preset\""
-	echo "Version: git-latest (29.06.22)"
+	echo "Version: git-latest (04.07.2022)"
+	echo "License: Apache 2.0"
 	echo "Author: ZaPPeX"
 	echo "Github: https://github.com/itz-me-ZaPPeX"
-	echo "Hello from Ukraine!"
 	echo "Russian warship, go fuck yourself!"
 	echo
 ;;
---edit | -ed )
+edit )
 	if [ "$#" -gt 2 ]
 	then
 		echo "$input_error"
@@ -295,12 +306,12 @@ case "$1" in
 	fi
 	xfce4_gamemode_security
 	case "$2" in
-	custom-preset )
+	--custom-preset )
 		read -p "$text_editor_question" editor
 		text_editor_check
 		"$editor" "$custom_preset_config"
 	;;
-	init-manage )
+	--init-manage )
 		read -p "$text_editor_question" editor
 		text_editor_check
 		"$editor" "$init_config"
@@ -309,7 +320,7 @@ case "$1" in
 		echo "$input_error"
 	esac
 ;;
---help | -h )
+help | -h | --help )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -317,8 +328,9 @@ case "$1" in
 	fi
 	cat "/opt/xfce4-gamemode/help"
 	echo
+	echo
 ;;
---keybind | -k )
+keybind )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -326,13 +338,13 @@ case "$1" in
 	fi
 	case "$xfce4_gamemode_status" in
 	inactive )
-		xfce4-gamemode --enable
+		xfce4-gamemode enable
 	;;
 	active )
-		xfce4-gamemode --disable
+		xfce4-gamemode disable
 	esac
 ;;
---reset | -r )
+reset )
 	if [ "$#" -gt 2 ]
 	then
 		echo "$input_error"
@@ -340,18 +352,18 @@ case "$1" in
 	fi
 	xfce4_gamemode_security
 	case "$2" in
-	config | data | all )
+	--config | --data | --all )
 		read -p "Do you really want to reset selected parameter? [Y/n]: " question
 		case "$question" in
 		Y | y )
 			case "$2" in
-			config )
+			--config )
 				reset_config
 			;;
-			data )
+			--data )
 				reset_data
 			;;
-			all )
+			--all )
 				reset_config
 				reset_data
 			esac
@@ -360,14 +372,14 @@ case "$1" in
 			echo "$cancel_output"
 		;;
 		* )
-			echo "$input_error"
+			echo "$invalid_parameter_output"
 		esac
 	;;
 	* )
 		echo "$input_error"
 	esac
 ;;
---uninstall | -u )
+uninstall )
 	if [ "$#" -gt 1 ]
 	then
 		echo "$input_error"
@@ -378,11 +390,67 @@ case "$1" in
 	case "$question" in
 	Y | y )
 		sudo bash -c "$(declare -f remove); remove"
+		if [ -d "/opt/xfce4-gamemode" ]
+		then
+			echo "You need superuser privileges to uninstall utility!"
+			exit
+		else
+			echo "Utility files have been deleted."
+		fi
 		reset_config
 		reset_data
 	;;
 	N | n )
 		echo "$cancel_output"
+	;;
+	* )
+		echo "$invalid_parameter_output"
+	esac
+;;
+update )
+	if [ "$#" -gt 1 ]
+	then
+		echo "$input_error"
+		exit
+	fi
+	xfce4_gamemode_security
+	read -p "Are you sure you want to update utility? [Y/n]: " question
+	case "$question" in
+	Y | y )
+		echo "Creating a temporary directory for downloading update..."
+		mkdir -p "$update_folder"
+		if [ -d "$update_folder" ]
+		then
+			cd "$update_folder"
+		else
+			echo "$update_error_output"
+			exit
+		fi
+		echo "Cloning repository..."
+		git clone --quiet "https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git"
+		if [ -d "xfce4-gamemode" ]
+		then
+			cd "xfce4-gamemode"
+		else
+			echo "$update_error_output"
+			exit
+		fi
+		if [ -d "src" ]
+		then
+			echo "Waiting for superuser rights..."
+			sudo bash -c "$(declare -f update_func); update_func"
+		else
+			echo "$update_error_output"
+			exit
+		fi
+		cd "$HOME"
+		rm -rf "$update_folder"
+	;;
+	N | n )
+		echo "$cancel_output"
+	;;
+	* )
+		echo "$invalid_parameter_output"
 	esac
 ;;
 * )
