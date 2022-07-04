@@ -9,7 +9,7 @@ Gamemode tweak for XFCE4 desktop.
 
 ## Description
 
-This utility created on Bash that supports controlling various commands from the terminal. It is intended to extend the gaming functionality of the XFCE4 desktop environment. Supports configuration files for custom presets and init-system service management. The default presets are aimed to provide better performance on different systems by disabling compositing and unnecessary XFCE4 services, but can also be used to extend the gaming functionality by starting/stopping applications and services during games. Managing normal services (without root access) does not require any additional manipulation when starting/stopping, but to manage services of the init-system, you must enter a password in the PolicyKit dialog box.
+This utility created on Bash that supports controlling various commands from the terminal. It is intended to extend gaming functionality of the XFCE4 desktop environment. Supports configuration files for custom presets and init-system service management. Default presets are aimed to provide better performance on different systems by disabling compositing and unnecessary XFCE4 services, but can also be used to extend the gaming functionality by starting/stopping applications and services during games. Managing normal services (without root access) does not require any additional manipulation when starting/stopping, but to manage services of the init-system, you must enter a password in the PolicyKit dialog box.
 
 ## INSTALLIATION
 
@@ -101,5 +101,5 @@ All tests were done on a freshly installed Manjaro Linux XFCE 21.3.0 (full editi
 
 ## Conclusion
 
-On my hardware, the difference between the presets is not noticeable (within the margin of error), but may help users with a weaker computer.
+On my hardware, the difference between presets isn't noticeable (within the margin of error), but may help users with a weaker computer.
 Also, don't forget to tune your distribution to improve performance.
