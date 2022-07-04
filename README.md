@@ -91,12 +91,12 @@ Init-config - requires user edits, also improves performance when configured nor
 
 Change of preset
 ```
-xfce4-gamemode --set preset default/performance/high-performance/custom-preset
+xfce4-gamemode set --preset default/performance/high-performance/custom-preset
 ```
 
 Enable/disable init-system service management
 ```
-xfce4-gamemode --set init-manage true/false
+xfce4-gamemode set --init-manage true/false
 ```
 ## TESTS IN "TOMB RAIDER 2013" (Proton 7.0.3)
 
