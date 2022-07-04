@@ -129,7 +129,7 @@ All tests were done on a freshly installed Manjaro Linux XFCE 21.3.0 (full editi
 
 ![gamemode-high-performance](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/gamemode-high-performance.png)
 
-### Conclusion
+## Conclusion
 
 On my hardware, the difference between the presets is not noticeable (within the margin of error), but may help users with a weaker computer.
 Also, don't forget to tune your distribution to improve performance.
