@@ -74,6 +74,8 @@ xfce4-gamemode disable
 | Name | Disables |
 | ---- | -------- |
 | Default | Screen blanking, compositing |
+| Performance | Screen blanking, compositing, xfdesktop, xfce4-clipman |
+| High-performance | Screen blanking, compositing, xfdesktop, xfce4-clipman, xfce4-panel, nm-applet, blueman-applet, xfce4-power-manager, light-locker, xfce4-notifyd |
 
 ## Tests in "Tomb Raider 2013" (Proton 7.0.3)
 
