@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 ## VARIABLES
 # FILES AND FOLDERS WITH WHICH THE SCRIPT WORKS
 config_folder="$HOME/.config/xfce4-gamemode"
@@ -291,11 +290,6 @@ info )
 	echo "Init-system service management: \"$init_manage\""
 	echo "Preset used: \"$preset\""
 	echo "Available presets: \"default\", \"performance\", \"high-performance\", \"custom-preset\""
-	echo "Version: git-latest (04.07.2022)"
-	echo "License: Apache 2.0"
-	echo "Author: ZaPPeX"
-	echo "Github: https://github.com/itz-me-ZaPPeX"
-	echo "Russian warship, go fuck yourself!"
 	echo
 ;;
 edit )
@@ -418,6 +412,10 @@ update )
 	case "$question" in
 	Y | y )
 		echo "Creating a temporary directory for downloading update..."
+		if [ -d "$update_folder" ]
+		then
+			rm -rf "$update_folder"
+		fi
 		mkdir -p "$update_folder"
 		if [ -d "$update_folder" ]
 		then
@@ -443,8 +441,15 @@ update )
 			echo "$update_error_output"
 			exit
 		fi
+		if [ ! -d "/opt/xfce4-gamemode" ]
+		then
+			echo "$update_error_output"
+		fi
 		cd "$HOME"
-		rm -rf "$update_folder"
+		if [ -d "$update_folder" ]
+		then
+			rm -rf "$update_folder"
+		fi
 	;;
 	N | n )
 		echo "$cancel_output"
@@ -452,6 +457,19 @@ update )
 	* )
 		echo "$invalid_parameter_output"
 	esac
+;;
+about )
+	if [ "$#" -gt 1 ]
+	then
+		echo "$input_error"
+		exit
+	fi
+	echo "Xfce4-gamemode"
+	echo "Version: git-latest (05.07.2022)"
+	echo "License: Apache 2.0"
+	echo "Author: ZaPPeX"
+	echo "Github: https://github.com/itz-me-ZaPPeX"
+	echo "Russian warship, go fuck yourself!"
 ;;
 * )
 	echo "$input_error"
