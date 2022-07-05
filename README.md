@@ -8,6 +8,7 @@ Gamemode tweak for XFCE4 desktop.
 [![DE](https://img.shields.io/badge/desktop%20environment-xfce4-blue)](https://www.xfce.org/?lang=en)
 ![release](https://img.shields.io/badge/last%20updated-05.07.2022-yellow)
 ![architecture](https://img.shields.io/badge/architecture-any-orange)
+![language](https://img.shields.io/badge/shell-100%25-brightgreen)
 
 ## Description
 
