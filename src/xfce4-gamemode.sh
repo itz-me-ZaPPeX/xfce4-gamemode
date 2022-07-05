@@ -322,7 +322,6 @@ help | -h | --help )
 	fi
 	cat "/opt/xfce4-gamemode/help"
 	echo
-	echo
 ;;
 keybind )
 	if [ "$#" -gt 1 ]
