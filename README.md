@@ -73,6 +73,7 @@ xfce4-gamemode disable
 
 | Name | Disables |
 | ---- | -------- |
+| Default | Screen blanking, compositing |
 
 ## Tests in "Tomb Raider 2013" (Proton 7.0.3)
 
