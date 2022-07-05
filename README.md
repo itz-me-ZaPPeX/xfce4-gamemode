@@ -12,7 +12,7 @@ Gamemode tweak for XFCE4 desktop.
 
 This utility created on Bash that supports controlling various commands from the terminal. It is intended to extend gaming functionality of the XFCE4 desktop environment. Supports configuration files for custom presets and init-system service management. Default presets are aimed to provide better performance on different systems by disabling compositing and unnecessary XFCE4 services, but can also be used to extend the gaming functionality by starting/stopping applications and services during games. Managing normal services (without root access) does not require any additional manipulation when starting/stopping, but to manage services of the init-system, you must enter a password in the PolicyKit dialog box.
 
-## Installiation
+## Installation
 
 ```
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
