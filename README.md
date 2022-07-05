@@ -45,6 +45,7 @@ keybind                    Enable/disable the utility depending on its state (ma
 uninstall                  Uninstall utility
 reset                      Reset utility settings
 update                     Update utility
+about                      About utility
 
 Additional operand parameters:
 
