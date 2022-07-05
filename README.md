@@ -6,7 +6,7 @@ Gamemode tweak for XFCE4 desktop.
 [![license](https://img.shields.io/badge/license-Apache%202.0-green)](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/LICENSE)
 [![platfotm](https://img.shields.io/badge/platform-linux-lightgrey)](https://en.wikipedia.org/wiki/Linux)
 [![DE](https://img.shields.io/badge/desktop%20environment-xfce4-blue)](https://www.xfce.org/?lang=en)
-[![release](https://img.shields.io/badge/last%20updated-04.07.2022-yellow)
+![release](https://img.shields.io/badge/last%20updated-04.07.2022-yellow)
 
 ## Description
 
