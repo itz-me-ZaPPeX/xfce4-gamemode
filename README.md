@@ -101,5 +101,5 @@ All tests were done on a freshly installed Manjaro Linux XFCE 21.3.0 (full editi
 
 ## Conclusion
 
-On my hardware, the difference between presets isn't noticeable (within the margin of error), but may help users with a weaker computer.
+On my hardware, difference between presets isn't noticeable (within the margin of error), but may help users with a weaker computer.
 Also, don't forget to tune your distribution to improve performance.
