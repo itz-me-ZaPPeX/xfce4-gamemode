@@ -469,6 +469,7 @@ about )
 	echo "Author: ZaPPeX"
 	echo "Github: https://github.com/itz-me-ZaPPeX"
 	echo "Russian warship, go fuck yourself!"
+	echo
 ;;
 * )
 	echo "$input_error"
