@@ -12,7 +12,7 @@ Gamemode tweak for XFCE4 desktop.
 
 This utility created on Bash that supports controlling various commands from the terminal. It is intended to extend gaming functionality of the XFCE4 desktop environment. Supports configuration files for custom presets and init-system service management. Default presets are aimed to provide better performance on different systems by disabling compositing and unnecessary XFCE4 services, but can also be used to extend the gaming functionality by starting/stopping applications and services during games. Managing normal services (without root access) does not require any additional manipulation when starting/stopping, but to manage services of the init-system, you must enter a password in the PolicyKit dialog box.
 
-## INSTALLIATION
+## Installiation
 
 ```
 $ git clone https://github.com/itz-me-ZaPPeX/xfce4-gamemode.git
@@ -21,7 +21,7 @@ $ chmod u+x install.sh
 $ sudo ./install.sh
 ```
 
-## USAGE
+## Usage
 
 For usage information, enter this command:
 ```
@@ -69,7 +69,7 @@ xfce4-gamemode disable
 
 ![example](https://github.com/itz-me-ZaPPeX/xfce4-gamemode/blob/main/images/example.png)
 
-## TESTS IN "TOMB RAIDER 2013" (Proton 7.0.3)
+## Tests in "Tomb Raider 2013" (Proton 7.0.3)
 
 ### Tested system
 
